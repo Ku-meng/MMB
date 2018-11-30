@@ -29,13 +29,11 @@ $(function(){
     var pagez = false;
 		// 手指按下事件
 		$('.navbar').on('touchstart', function (e) {
-      e.preventDefault();
 			startY = e.touches[0].clientY
       startX = e.touches[0].clientX
 		})
 		// 移动事件
 		$('.navbar').on('touchmove', function (e) {
-      e.preventDefault();
       if(this.classList.contains('click')) {
         return false;
       }
@@ -71,7 +69,6 @@ $(function(){
       kar = true;
 		})
 		$('.navbar').on('touchend', function (e) {
-      e.preventDefault();
       pagez = true;
       if(kar) {
         currentY = currentY + distanceY;
@@ -95,7 +92,7 @@ $(function(){
 		})
 		// 开关思想
 		var i = 0;
-			document.getElementsByClassName('navbar')[0].addEventListener('tap', function () {
+		document.getElementsByClassName('navbar')[0].addEventListener('tap', function () {
 		   
 			if (i == 0) {
         if (clie) {
@@ -118,6 +115,21 @@ $(function(){
 				$(this).animate({
 					left:'10px',
 					top:   '70px'
+
+				$(this).animate({
+					left:'0.5rem',
+					top:   '0.5rem'
+				})
+				this.classList.add('click');
+				i = 1;
+			} else {
+			   
+				this.classList.remove('click');
+				i = 0;
+				$(this).animate({
+					left:'0.1rem',
+					top:   '0.7rem'
+
 				},)
 			}
 		})
